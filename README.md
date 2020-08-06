@@ -50,7 +50,7 @@ From neovim you can run `:CheckHealth` to verify python3 support
 ### Create a NeoVim init.vim file in ~/.config/nvim/init.vim 
 
 This is your init.vim file (similar to .vimrc)
-`
+```
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -63,7 +63,7 @@ Plug 'ndsullivan8/Qim'
 call plug#end()
 
 syntax enable
-`
+```
 
 Make sure you've added the Qim vim-plugin; add this line to the plugin section (see above):
 
