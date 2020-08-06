@@ -36,11 +36,14 @@ $pkgmgr install neovim
 (Note the of the vim-plug Directory!!!)
 [vim-plug installation instructions](https://github.com/junegunn/vim-plug)
 
+
 MAC-OS ( ~/.local/share/ <- Plug Directory)
+
 `
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 `
+
 
 ### <a id="install-pynvim"></a>Install pynvim
 Qim should be using Python3 by default 
