@@ -1,4 +1,4 @@
-# Example Neovim Python Plugin
+# Qim NeoVim Python Plugin
 
 - [Introduction](#introduction)
 - [Installing](#installing)
