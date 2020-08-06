@@ -110,14 +110,13 @@ To initialize the manifest, execute:
 You should see the following rplugin file auto updated
 `cat ~/.local/share/nvim/rplugin.vim`
 
-Should read something like this
-
-`
+The rplugin should contain something like this...
+```
 " python3 plugins
 call remote#host#RegisterPlugin('python3', '/Users/nsully/.local/share/nvim/plugged/qim/rplugin/python3/qim.py', [
        \ {'sync': v:false, 'name': 'QimMain', 'type': 'function', 'opts': {}},
       \ ])
-`
+```
 
 
 **NOTE:** After initializing the manifest, you must restart neovim for the python
