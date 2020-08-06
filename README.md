@@ -1,22 +1,5 @@
 # Qim NeoVim Python Plugin
 
-- [Introduction](#introduction)
-- [Installing](#installing)
-    - [Downloading](#downloading)
-    - [Configuring Vim](#configuring-vim)
-    - [Python Version](#python_version)
-    - [Initializing Vim with Remote Plugin](#initializing)
-    - [Testing the New Plugin](#testing)
-- [Development](#development)
-    - [Debugging](#debugging)
-    - [Plugin Interface Changes](#changing-interface)
-- [Troubleshooting](#troubleshooting)
-    - [Refreshing the Manifest File](#refreshing-manifest)
-    - [Python Client Log File](#client-log-file)
-    - [Neovim Log File](#neovim-log-file)
-    - [Neovim Library](#neovim-library)
-- [References](#references)
-
 ## <a id="introduction"></a>Introduction
 
 As part of the changes included in Neovim there is a new plugin model where
@@ -33,15 +16,7 @@ happen.
 
 ## <a id="installing"></a>Installing
 
-### <a id="downloading"></a>Downloading
-
-The intention of this repository is to make it quick and easy to start a new
-plugin. It is just enough to show how to make the basics work.
-
-
-### <a id="configuring-vim"></a>Configuring Vim
-
-### Install NeoVim
+### <a id="install-neovim"></a>Install NeoVim
 MAC-OS
 `
 homebrew install neovim
@@ -54,9 +29,9 @@ Linux
 `
 $pkgmgr install neovim
 `
+### <a id="install-vim-plug"></a>Install vim-plug
 
-### Install vim-plug (Note the of the vim-plug Directory!!!)
-Install vim-plug:
+(Note the of the vim-plug Directory!!!)
 [vim-plug installation instructions](https://github.com/junegunn/vim-plug)
 
 MAC-OS ( ~/.local/share/ <- Plug Directory)
@@ -64,6 +39,13 @@ MAC-OS ( ~/.local/share/ <- Plug Directory)
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 `
+
+### <a id="install-pynvim"></a>Install pynvim
+Qim should be using Python3 by default 
+
+`pip3 install pynvim` 
+
+From neovim you can run `:CheckHealth` to verify python3 support
 
 ### Create a NeoVim init.vim file in ~/.config/nvim/init.vim 
 
@@ -85,15 +67,9 @@ syntax enable
 
 Make sure you've added the Qim vim-plugin; add this line to the plugin section (see above):
 
-```VimL
+```The Qim Plugin
 Plug 'ndsullivan8/Qim'
 ```
-
-### <a id="python_version"></a>Install Python Version
-
-Should be Python3 by default you may have to `pip3 install pynvim` after you've installed neovim
-
-From neovim you can run `:CheckHealth` to verify python3 support
 
 ### <a id="initializing"></a>Initializing Vim with Remote Plugin
 
@@ -101,12 +77,16 @@ The next thing to do is to initialize the manifest for the Python part of the
 plugin. The manifest is a cache that Vim keeps of the interface implemented by
 the Python part of the plugin. The functions and commands it implements.
 
-To initialize the manifest, execute:
+To initialize the manifest, execute the following commands from neovim command line.
 
-```VimL
+```NeoVim
+:PluginInstall
+```
+Plugin install should install Qim
+
+```NeoVim
 :UpdateRemotePlugins
 ```
-
 You should see the following rplugin file auto updated
 `cat ~/.local/share/nvim/rplugin.vim`
 
