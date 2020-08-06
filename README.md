@@ -21,10 +21,12 @@ MAC-OS
 `
 homebrew install neovim
 `
+
 Devserver
 `
 sudo feature install neovim
 `
+
 Linux
 `
 $pkgmgr install neovim
