@@ -42,19 +42,33 @@ plugin. It is just enough to show how to make the basics work.
 ### <a id="configuring-vim"></a>Configuring Vim
 
 ### Install NeoVim
+MAC-OS
+`
+homebrew install neovim
+`
+Devserver
+`
+sudo feature install neovim
+`
+Linux
+`
+$pkgmgr install neovim
+`
 
-
-### Install vim-plug (Note ~/.local/share/ Plug Director)
+### Install vim-plug (Note the of the vim-plug Directory!!!)
 Install vim-plug:
-``
+[vim-plug installation instructions](https://github.com/junegunn/vim-plug)
+
+MAC-OS ( ~/.local/share/ <- Plug Directory)
+`
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-``
+`
 
-### Create an init.vim file in ~/.config/nvim/init.vim (Create file/dirs if they don't exist)
+### Create a NeoVim init.vim file in ~/.config/nvim/init.vim 
 
-This is your init.vim file
-``
+This is your init.vim file (similar to .vimrc)
+`
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -67,15 +81,15 @@ Plug 'ndsullivan8/Qim'
 call plug#end()
 
 syntax enable
-``
+`
 
-This is the Qim vim-plug, you can add this line to your plugin section (see above):
+Make sure you've added the Qim vim-plugin; add this line to the plugin section (see above):
 
 ```VimL
 Plug 'ndsullivan8/Qim'
 ```
 
-### <a id="python_version"></a>Python Version
+### <a id="python_version"></a>Install Python Version
 
 Should be Python3 by default you may have to `pip3 install pynvim` after you've installed neovim
 
@@ -129,7 +143,7 @@ function defined in the Python part of the plugin. Look in \_\_init\_\_ to see
 the implementation.
 
 ```VimL
-:exec DoItPython()
+:exec QimMain()
 ```
 
 ## <a id="development"></a>Development
