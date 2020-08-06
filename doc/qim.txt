@@ -1,0 +1,17 @@
+*Qim.txt* A template of a remote Python Plugin
+
+                  Example Remote Python Plugin
+
+==============================================================================
+
+CONTENTS                                 *Qim TOC*
+
+    1. Introduction .................... |Qim|
+
+
+Original Author:    Nathan Sullivan
+License:            The Unlicense
+
+INTRODUCTION                                *Qim*
+
+Python Plugin for Neovim to support Quip Doc editing
