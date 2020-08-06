@@ -41,23 +41,45 @@ plugin. It is just enough to show how to make the basics work.
 
 ### <a id="configuring-vim"></a>Configuring Vim
 
+### Install NeoVim
+
+
+### Install vim-plug (Note ~/.local/share/ Plug Director)
 Install vim-plug:
 ``
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ``
 
-If you use vim-plug, you can add this line to your plugin section:
+### Create an init.vim file in ~/.config/nvim/init.vim (Create file/dirs if they don't exist)
+
+This is your init.vim file
+``
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+" Plugins will be downloaded under the specified directory.
+call plug#begin('~/.local/share/nvim/plugged')
+
+" Qim
+Plug 'ndsullivan8/Qim'
+
+call plug#end()
+
+syntax enable
+``
+
+This is the Qim vim-plug, you can add this line to your plugin section (see above):
 
 ```VimL
-Plug 'jacobsimpson/nvim-example-python-plugin'
+Plug 'ndsullivan8/Qim'
 ```
-
-After running `:PlugInstall`, the files should appear in your `~/.config/nvim/plugged` directory (or whatever path you have configured for plugins).
 
 ### <a id="python_version"></a>Python Version
 
-This plugin code works with Python 2. You can make it work with Python 3 by changing the `rplugin/python` directory to be `rplugin/python3`. See the [python-client remote plugin documentation](https://github.com/neovim/python-client#remote-new-style-plugins) for more information.
+Should be Python3 by default you may have to `pip3 install pynvim` after you've installed neovim
+
+From neovim you can run `:CheckHealth` to verify python3 support
 
 ### <a id="initializing"></a>Initializing Vim with Remote Plugin
 
@@ -70,6 +92,19 @@ To initialize the manifest, execute:
 ```VimL
 :UpdateRemotePlugins
 ```
+
+You should see the following rplugin file auto updated
+`cat ~/.local/share/nvim/rplugin.vim`
+
+Should read something like this
+
+`
+" python3 plugins
+call remote#host#RegisterPlugin('python3', '/Users/nsully/.local/share/nvim/plugged/qim/rplugin/python3/qim.py', [
+       \ {'sync': v:false, 'name': 'QimMain', 'type': 'function', 'opts': {}},
+      \ ])
+`
+
 
 **NOTE:** After initializing the manifest, you must restart neovim for the python
 functions be be available.
@@ -86,7 +121,7 @@ There is a function defined in the VimL portion of the plugin which echos some
 text. You can execute the function like this:
 
 ```VimL
-:exec DoItVimL()
+:exec HelloWorld()
 ```
 
 Now that the manifest is initialized, it should be possible to invoke the
